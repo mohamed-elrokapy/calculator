@@ -3,35 +3,53 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A small keyboard-friendly calculator. Plain HTML, CSS and JavaScript, no eval()." />
+    <meta name="theme-color" content="#d8d4cb" />
     <title>Calculator</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="calculator">
-      <input id="myinput" type="text" disabled />
-      <div class="buttons">
-        <button>1</button>
-        <button>2</button>
-        <button>3</button>
-        <button>+</button>
+    <main>
+      <h1 class="visually-hidden">Calculator</h1>
+      <div class="device">
+        <div class="screen">
+          <p class="pending" id="pending" aria-hidden="true"></p>
+          <output class="readout" id="display" aria-label="Display">0</output>
+        </div>
 
-        <button>4</button>
-        <button>5</button>
-        <button>6</button>
-        <button>-</button>
+        <div class="keys" role="group" aria-label="Calculator keys">
+          <button type="button" class="key fn" data-action="clear" aria-label="Clear">AC</button>
+          <button type="button" class="key fn" data-action="backspace" aria-label="Backspace">&#9003;</button>
+          <button type="button" class="key fn" data-action="percent" aria-label="Percent">%</button>
+          <button type="button" class="key op" data-action="operator" data-value="/" aria-label="Divide">&divide;</button>
 
-        <button>7</button>
-        <button>8</button>
-        <button>9</button>
-        <button>*</button>
+          <button type="button" class="key num" data-action="digit" data-value="7">7</button>
+          <button type="button" class="key num" data-action="digit" data-value="8">8</button>
+          <button type="button" class="key num" data-action="digit" data-value="9">9</button>
+          <button type="button" class="key op" data-action="operator" data-value="*" aria-label="Multiply">&times;</button>
 
-        <button>0</button>
-        <button>/</button>
-        <button>del</button>
-        <button>=</button>
+          <button type="button" class="key num" data-action="digit" data-value="4">4</button>
+          <button type="button" class="key num" data-action="digit" data-value="5">5</button>
+          <button type="button" class="key num" data-action="digit" data-value="6">6</button>
+          <button type="button" class="key op" data-action="operator" data-value="-" aria-label="Subtract">&minus;</button>
+
+          <button type="button" class="key num" data-action="digit" data-value="1">1</button>
+          <button type="button" class="key num" data-action="digit" data-value="2">2</button>
+          <button type="button" class="key num" data-action="digit" data-value="3">3</button>
+          <button type="button" class="key op" data-action="operator" data-value="+" aria-label="Add">+</button>
+
+          <button type="button" class="key fn" data-action="negate" aria-label="Change sign">+/&minus;</button>
+          <button type="button" class="key num" data-action="digit" data-value="0">0</button>
+          <button type="button" class="key num" data-action="decimal" aria-label="Decimal point">.</button>
+          <button type="button" class="key eq" data-action="equals" aria-label="Equals">=</button>
+        </div>
       </div>
-    </div>
+      <p class="hint">Keyboard: digits, <kbd>+</kbd> <kbd>-</kbd> <kbd>*</kbd> <kbd>/</kbd>, <kbd>Enter</kbd> for equals, <kbd>Backspace</kbd>, <kbd>Esc</kbd> to clear.</p>
+    </main>
 
+    <script src="engine.js"></script>
     <script src="main.js"></script>
   </body>
 </html>
